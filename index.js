@@ -40,13 +40,45 @@ let time = 500;
 let clicked = 0;
 let interval;
 
+const compliments = [
+  "Nice!",
+  "Good job!",
+  "Wowee!",
+  "Holy fucking shit!",
+  "You're killin' it!",
+  "Those clicks don't stand a chance!",
+  "Jeez, leave some numbers for the rest of us!",
+  "Please stop clicking it's starting to hurt",
+  "Golly!",
+  "Haha wow still going huh",
+  "Awesome!",
+  "Good try!",
+  "You're so sexy I want those clicky clicky fingers of yours ins",
+  "SICK!",
+  "You're gonna beat your record I know it!",
+  "Sweeeeeeeet!!!!!",
+  "Jesus Christ you're a maniac!",
+  "What the fuck!",
+  "Gosh!",
+  "I yie yie!",
+  "Woopee!",
+];
+
+let complimentNumber = 0;
+
 button.addEventListener("click", () => {
   if (time === 500) {
     button.innerHTML = 1;
     clicked = 1;
     interval = setInterval(() => {
       if (time <= 0) {
-        button.innerHTML = "Total: " + clicked;
+        const compliment = compliments[complimentNumber];
+        complimentNumber =
+          complimentNumber === compliments.length - 1
+            ? 0
+            : complimentNumber + 1;
+
+        button.innerHTML = "Total: " + clicked + `<br />` + compliment;
         timer.innerHTML = "0.00";
         clearInterval(interval);
       } else {
