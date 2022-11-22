@@ -24,6 +24,12 @@ document.addEventListener("gestureend", function (e) {
   document.body.style.zoom = 0.99;
 });
 
+function preventBehavior(e) {
+  e.preventDefault();
+}
+
+document.addEventListener("touchmove", preventBehavior, { passive: false });
+
 const button = document.getElementById("button");
 const reset = document.getElementById("reset");
 
